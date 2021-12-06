@@ -12,12 +12,12 @@ public class Initialize
     public static string ConfigureCookie()
     {
         string? cookie = Environment.GetCommandLineArgs().LastOrDefault();
-        
-        if (string.IsNullOrWhiteSpace(cookie))
+
+        if (string.IsNullOrWhiteSpace(cookie) || !cookie.Contains("session="))
         {
             Console.WriteLine("Please insert your cookie from https://adventofcode.com/ in the format 'session=xyz123'");
             cookie = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(cookie))
+            if (string.IsNullOrWhiteSpace(cookie) || !cookie.Contains("session="))
             {
                 Console.WriteLine("No cookie inserted. Please restart and try again");
                 Environment.Exit(1);
@@ -51,6 +51,9 @@ public class Initialize
                 break;
             case 5:
                 new Day5(values);
+                break;
+            case 6:
+                new Day6(values);
                 break;
             default:
                 Console.WriteLine($"Puzzle has not yet been created for day {day}. Please come back later");
