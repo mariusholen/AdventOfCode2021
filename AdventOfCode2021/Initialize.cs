@@ -61,6 +61,9 @@ public class Initialize
             case 8:
                 new Day8(values);
                 break;
+            case 9:
+                new Day9(values);
+                break;
             default:
                 Console.WriteLine($"Puzzle has not yet been created for day {day}. Please come back later");
                 break;
